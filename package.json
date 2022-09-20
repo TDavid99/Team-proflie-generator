@@ -1,0 +1,29 @@
+{
+  "name": "team-proflie-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {
+    "jest": "^29.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TDavid99/Team-proflie-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TDavid99/Team-proflie-generator/issues"
+  },
+  "homepage": "https://github.com/TDavid99/Team-proflie-generator#readme",
+  "dependencies": {
+    "inquirer": "^9.1.2"
+  }
+}
