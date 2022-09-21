@@ -15,3 +15,7 @@ test("get employee's name", () => {
     expect(employee.getName()).toEqual(employee.name.tostring());
 
 });
+
+test("gets employee's ID", () => {
+const employee = new Employee("Dave")
+}) 
