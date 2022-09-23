@@ -1,8 +1,8 @@
 const { expect } = require("@jest/globals");
 const Employee = require("../lib/employee.js");
-const intern = require("../lib/intern.js");
+const Intern = require("../lib/intern.js");
 
-Test("creates intern object", () => {
+test("creates intern object", () => {
     const intern = new Intern("TyroneWallace","23", "Tyronew@email.com",);
     expect(intern.name).toBe("TyroneWallace");
     expect(intern.id).toBe(24);
