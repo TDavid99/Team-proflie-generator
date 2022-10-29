@@ -1,23 +1,23 @@
-const Employee = require('../lib/employee');
-const Engineer = require('../lib/engineer');
+const Employee = require('../lib/Employee.js');
+const Engineer = require('../lib/Engineer.js');
 
 test('creates an engineer', () => {
-const engineer = new Engineer('Bobby',"3456", "Bjones@email.com", "bjonesgit");
+const engineer = new Engineer("Bobby","3", "Bjones@email.com", "Bjonesgit");
 
 expect(engineer.name).toBe("Bobby");
-expect(engineer.id).toBe("3456");
+expect(engineer.id).toBe("3");
 expect(engineer.email).toBe("Bjones@email.com");
-expect(engineer.github).toBe("bjonesgit");
+expect(engineer.github).toBe("Bjonesgit");
 });
 
 test('setup github', () => {
-    const engineer = new Engineer("Bobby", "3456", "Bjones@email.com", 'bjonesgit');
+    const engineer = new Engineer("Bobby", "3", "Bjones@email.com", 'bjonesgit');
     
     expect(engineer.getgithub()).toEqual(engineer.github.toString());
 });
 
-test("get role", () => {
-    const engineer = new engineer("Bobby","3456", "bjones@email.com", "bjonesgit");
+test("get  engineer postion", () => {
+    const engineer = new Engineer("Bobby","3", "Bjones@email.com", "Bjonesgit");
 
-    expect(engineer.getrole()).toEqual("Engineer");
+    expect(engineer.getpostion()).toEqual("Engineer");
 });
