@@ -14,5 +14,5 @@ test("get mangager content", ()=> {
 
 test("get managers position", () => {
 const manager = new Manager("David", "1", "David@gmail.com", "201")
-expect(manager.getpostion()).toEqual("Manager");
+expect(manager.getPostion()).toEqual("Manager");
 });

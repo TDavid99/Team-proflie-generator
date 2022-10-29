@@ -13,13 +13,13 @@
     "type": "git",
     "url": "git+https://github.com/TDavid99/Team-proflie-generator.git"
   },
-  "author": "",
+  "author": "TDavid99",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/TDavid99/Team-proflie-generator/issues"
   },
   "homepage": "https://github.com/TDavid99/Team-proflie-generator#readme",
   "dependencies": {
-    "inquirer": "8.0.0"
+    "inquirer": "8.2.4"
   }
 }

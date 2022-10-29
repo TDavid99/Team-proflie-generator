@@ -11,13 +11,14 @@ const fs = require('fs');
 const teamArray = [];
 
 const {
-    ManagerQA,
-    AddEngineerQA,
+    managerQA,
+    addEngineerQA,
     addInternQA,
     chooseEnigineerOrIntern,
     addAnotherEmployeeQAA,
     } = require('./lib/QA');
     const generateHtml = require('./src/generateHtml');
+const { profile } = require("console");
     const teamManager = [];
     const allEnigineers = [];
     const allInterns = [];
@@ -30,7 +31,7 @@ const {
         }
         //manager info from user
         getManagerInfo() {
-            inquirer.prompt(ManagerQA).then((answers)=> {
+            inquirer.prompt(managerQA).then((answers)=> {
                 const manager = new Manager(
                     answers.managerName,
                     answers.managerId,
@@ -85,7 +86,7 @@ const {
 
        //if user wants to add another employee; it no ends prompt and generates html
        addAnotherEmployeeQAA() {
-        inquirer.prompt(addAnotherEmployeeQAAA).then((answers) => {
+        inquirer.prompt(addAnotherEmployeeQAA).then((answers) => {
             if (answers.confirmNewEmployee) {
                 this.addEngineerOrIntern();
             } else {
@@ -106,7 +107,15 @@ const {
          "utf-8"
         );
        }
-       
+       // runs prompt
+       inti() {
+        console.log("Team Profile Generator.");
+        this.getManagerInfo();
+       }
     }
+
+    const Profile1 = new TeamProfile();
+
+    profile.init();
 
 
