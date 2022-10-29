@@ -50,7 +50,63 @@ const {
                         break;
                         case "Intern":
                     this.getInterInfo();
+                    break;
+                    default:
+                    return;
                 }
-            }
+            });
         }
+        //engineer info from user
+        getEngineerInfo() {
+            inquirer.prompt(addEngineerQA).then((answers) => {
+                const engineer = new Engineer(
+                    answers.engineerName,
+                    answers.engineerId,
+                    answers.engineerEmail,
+                    answers.engineerGithub,
+                );
+                allEnigineers.push(engineer);
+                this.addAnotherEmployeeQAA();
+            });
+        }
+       // Inter info from user
+       getInterInfo() {
+        inquirer.prompt(addInternQA).then((answers) => {
+       const intern = new Intern(
+         answers.internName,
+         answers.internId,
+         answers.internEmail,
+         answers.internSchool 
+       );
+       allInterns.push(intern);
+       this.addAnotherEmployeeQAA();
+        });
+       }
+
+       //if user wants to add another employee; it no ends prompt and generates html
+       addAnotherEmployeeQAA() {
+        inquirer.prompt(addAnotherEmployeeQAAA).then((answers) => {
+            if (answers.confirmNewEmployee) {
+                this.addEngineerOrIntern();
+            } else {
+             this.createHtml(teamManager, allEnigineers, allInterns);
+
+             console.log(
+                "\nYour team profile is complete in dist folder.\n"
+              );
+            }
+            return;
+        });
+       }
+       //creates html in dist folder
+       createHtml(teamManager, allEnigineers, allInterns) {
+        const file = fs.promises.writeFile(
+            "./dist/index,html",
+         generateHtml( teamManager, allEnigineers, allInterns),
+         "utf-8"
+        );
+       }
+       
     }
+
+
