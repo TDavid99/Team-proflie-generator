@@ -1,5 +1,5 @@
-const Employee = require ('../lib/employee');
-const Manager = require('../lib/manager')
+const Employee = require ('../lib/Employee');
+const Manager = require('../lib/Manager')
 
 Test("get mangager content", ()=> {
     const manager = new Mangager(David)

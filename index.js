@@ -1,16 +1,24 @@
-const inquirer = require ('inquirer');
+const inquirer = require("inquirer");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
+
+
+
+
 const fs = require('fs');
-const path = require('path');
-const jest = require('jest');
+const inquirer = require('inquirer');
 
+const teamArray = [];
 
-const Employee = require('./lib/employee');
-const Manager = require('./lib/manager');
-const Engineer = require('./lib/engineer');
-const intern = require('./lib/intern');
-
-
-const dist_DIR = path.resolve(__dirname, 'dist')
-const outputPath = path.join(dist_DIR, 'index.html');
-
-const renderm = require('./src/output')
+const {
+    ManagerQA,
+    AddEngineerQA,
+    addInternQA,
+    chooseEnigineerOrIntern,
+    addAnotherEmployeeQAA,
+    } = require('./lib/QA');
+    const generateHtml = require('./src/generateHtml');
+    const teamManager = [];
+    const allEnigineers = [];
+    const allInterns = [];
