@@ -1,22 +1,18 @@
+
 const Employee = require ('../lib/Employee');
-const Manager = require('../lib/Manager')
+const Manager = require('../lib/Manager');
+const {expect} = require("@jest/globals");
 
 Test("get mangager content", ()=> {
-    const manager = new Mangager(David)
-})
-
-Test("get office number", ()=> {
-    const testValue = 100;
-    const e = new Manager("office", balcony, "manager@email.com", testvalue);
-    expect(e.officeNumber).toBe(testValue);
-
+    const manager = new Manager("David", "1", "David@email.com", "201")
+    
+    expect(manager.name).toBe("David");
+    expect(manager.id).toBe("1");
+    expect(manager.getOfficenumber).toBe("201");
+    expect(manager.email).toBe("David@gmail.com");
 });
 
-test("get office number with getofficeNumber() method", () => {
-    expect(e.getOfficenumber()).toBe(testValue);
-});
-test("getRole() return Manager", () => {
-const testValue= 'Manager';
-const e = new Manager("office", balcony, 'manager@email.com', 100)
-expect(e.getrole()).toBe(testValue);
+test("get managers position", () => {
+const manager = new Manager("David", "1", "David@gmail.com", "201")
+expect(manager.getpostion()).toEqual("Manager");
 });
