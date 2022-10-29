@@ -3,7 +3,7 @@ const Employee = require ('../lib/Employee');
 const Manager = require('../lib/Manager');
 const {expect} = require("@jest/globals");
 
-Test("get mangager content", ()=> {
+test("get mangager content", ()=> {
     const manager = new Manager("David", "1", "David@email.com", "201")
     
     expect(manager.name).toBe("David");

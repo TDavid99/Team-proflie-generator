@@ -1,7 +1,7 @@
 const Employee = require('../lib/Employee.js');
 const Engineer = require('../lib/Engineer.js');
 
-test('creates an engineer', () => {
+test("creates an engineer object", () => {
 const engineer = new Engineer("Bobby","3", "Bjones@email.com", "Bjonesgit");
 
 expect(engineer.name).toBe("Bobby");
@@ -11,7 +11,7 @@ expect(engineer.github).toBe("Bjonesgit");
 });
 
 test('setup github', () => {
-    const engineer = new Engineer("Bobby", "3", "Bjones@email.com", 'bjonesgit');
+    const engineer = new Engineer("Bobby", "3", "Bjones@email.com", 'Bjonesgit');
     
     expect(engineer.getgithub()).toEqual(engineer.github.toString());
 });
