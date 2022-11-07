@@ -4,10 +4,10 @@ const Engineer = require('../lib/Engineer.js');
 test("creates an engineer object", () => {
 const engineer = new Engineer("Bobby","1", "Bjones@email.com", "Bjonesgit");
 
-expect(engineer.name).toBe("Bobby");
-expect(engineer.id).toBe("1");
-expect(engineer.email).toBe("Bjones@email.com");
-expect(engineer.github).toBe("Bjonesgit");
+expect(engineer.name).toEqual("Bobby");
+expect(engineer.id).toEqual("1");
+expect(engineer.email).toEqual("Bjones@email.com");
+expect(engineer.github).toEqual("Bjonesgit");
 });
 
 test('setup github', () => {

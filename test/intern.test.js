@@ -6,10 +6,10 @@ const Intern = require("../lib/intern.js");
 test("creates intern object", () => {
     const intern = new Intern("Tyrone", "1", "Tyronew@email.com","UNC-Charlotte");
 
-    expect(intern.name).toBe("Tyrone");
-    expect(intern.id).toBe("1");
-    expect(intern.email).toBe("Tyronew@email.com");
-    expect(intern.school).toBe("UNC-Charlotte");
+    expect(intern.name).toEqual("Tyrone");
+    expect(intern.id).toEqual("1");
+    expect(intern.email).toEqual("Tyronew@email.com");
+    expect(intern.school).toEqual("UNC-Charlotte");
 });
 
 test("interns school", () => {
@@ -18,7 +18,7 @@ test("interns school", () => {
     expect(intern.getSchool()).toEqual(intern.school.toString());
 });
 test("gets Postion ", () => {
-    const intern = new Intern("Tyrone", "1", "Tyronew@email.com",);
+    const intern = new Intern("Tyrone", "1", "Tyronew@email.com", "UNC-Charlotte");
 
     expect(intern.getPostion()).toEqual("Intern");
 });
