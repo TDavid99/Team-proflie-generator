@@ -3,119 +3,112 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
+const fs = require("fs");
 
-
-
-const fs = require('fs');
-
-const teamArray = [];
+// const teamArray = [];
 
 const {
-    managerQA,
-    addEngineerQA,
-    addInternQA,
-    chooseEnigineerOrIntern,
-    addAnotherEmployeeQAA,
-    } = require('./lib/QA');
-    const generateHtml = require('./src/generateHtml');
+  managerQA,
+  addEngineerQA,
+  addInternQA,
+  chooseEnigineerOrIntern,
+  addAnotherEmployeeQAA,
+} = require("./lib/QA");
+const generateHtml = require("./src/generateHtml");
 const { profile } = require("console");
-    const teamManager = [];
-    const allEnigineers = [];
-    const allInterns = [];
+const teamManager = [];
+const allEnigineers = [];
+const allInterns = [];
 
-    class TeamProfile {
-        constructor(){
-            this.teamManager = [];
-            this.allEnigineers =[];
-            this.allInterns = [];
-        }
-        //manager info from user
-        getManagerInfo() {
-            inquirer.prompt(managerQA).then((answers)=> {
-                const manager = new Manager(
-                    answers.managerName,
-                    answers.managerId,
-                    answers.managerEmail,
-                    answers.managerOfficeNumber
-                );
-                teamManager.push(manager);
-                this.addEngineerOrIntern();
-            });
-        }
-        //inter or engineer addd by user
-        addEngineerOrIntern() {
-            inquirer.prompt(chooseEnigineerOrIntern).then((answers) => {
-                switch(answers.addEmployee) {
-                    case "Engineer":
-                        this.getEngineerInfo();
-                        break;
-                        case "Intern":
-                    this.getInterInfo();
-                    break;
-                    default:
-                    return;
-                }
-            });
-        }
-        //engineer info from user
-        getEngineerInfo() {
-            inquirer.prompt(addEngineerQA).then((answers) => {
-                const engineer = new Engineer(
-                    answers.engineerName,
-                    answers.engineerId,
-                    answers.engineerEmail,
-                    answers.engineerGithub,
-                );
-                allEnigineers.push(engineer);
-                this.addAnotherEmployeeQAA();
-            });
-        }
-       // Inter info from user
-       getInterInfo() {
-        inquirer.prompt(addInternQA).then((answers) => {
-       const intern = new Intern(
-         answers.internName,
-         answers.internId,
-         answers.internEmail,
-         answers.internSchool 
-       );
-       allInterns.push(intern);
-       this.addAnotherEmployeeQAA();
-        });
-       }
+class TeamProfile {
+  constructor() {
+    this.teamManager = [];
+    this.allEnigineers = [];
+    this.allInterns = [];
+  }
+  //manager info from user
+  getManagerInfo() {
+    inquirer.prompt(managerQA).then((answers) => {
+      const manager = new Manager(
+        answers.managerName,
+        answers.managerId,
+        answers.managerEmail,
+        answers.managerOfficeNumber
+      );
+      teamManager.push(manager);
+      this.addEngineerOrIntern();
+    });
+  }
+  //inter or engineer addd by user
+  addEngineerOrIntern() {
+    inquirer.prompt(chooseEnigineerOrIntern).then((answers) => {
+      switch (answers.addEmployee) {
+        case "Engineer":
+          this.getEngineerInfo();
+          break;
+        case "Intern":
+          this.getInterInfo();
+          break;
+        default:
+          return;
+      }
+    });
+  }
+  //engineer info from user
+  getEngineerInfo() {
+    inquirer.prompt(addEngineerQA).then((answers) => {
+      const engineer = new Engineer(
+        answers.engineerName,
+        answers.engineerId,
+        answers.engineerEmail,
+        answers.engineerGithub
+      );
+      allEnigineers.push(engineer);
+      this.addAnotherEmployeeQAA();
+    });
+  }
+  // Inter info from user
+  getInterInfo() {
+    inquirer.prompt(addInternQA).then((answers) => {
+      const intern = new Intern(
+        answers.internName,
+        answers.internId,
+        answers.internEmail,
+        answers.internSchool
+      );
+      allInterns.push(intern);
+      this.addAnotherEmployeeQAA();
+    });
+  }
 
-       //if user wants to add another employee; it no ends prompt and generates html
-       addAnotherEmployeeQAA() {
-        inquirer.prompt(addAnotherEmployeeQAA).then((answers) => {
-            if (answers.confirmNewEmployee) {
-                this.addEngineerOrIntern();
-            } else {
-             this.createHtml(teamManager, allEnigineers, allInterns);
+  //if user wants to add another employee; it no ends prompt and generates html
+  addAnotherEmployeeQAA() {
+    inquirer.prompt(addAnotherEmployeeQAA).then((answers) => {
+      if (answers.confirmNewEmployee) {
+        this.addEngineerOrIntern();
+      } else {
+        this.createHtml(teamManager, allEnigineers, allInterns);
 
-             console.log(
-                "\nYour team profile is complete in dist folder.\n"
-              );
-            }
-            return;
-        });
-       }
-       //creates html in dist folder
-       createHtml(teamManager, allEnigineers, allInterns) {
-        const file = fs.promises.writeFile(
-            "./dist/index,html",
-         generateHtml( teamManager, allEnigineers, allInterns),
-         "utf-8"
-        );
-       }
-       // runs prompt
-       inti() {
-        console.log("Team Profile Generator.");
-        this.getManagerInfo();
-       }
-    }
+        console.log("\nYour team profile is complete in dist folder.\n");
+      }
+      return;
+    });
+  }
+  //creates html in dist folder
+  createHtml(teamManager, allEnigineers, allInterns) {
+    const file = fs.promises.writeFile(
+      "./dist/index,html",
+      generateHtml(teamManager, allEnigineers, allInterns),
+      "utf-8"
+    );
+  }
+  // runs prompt
+  inti() {
+    console.log("Team Profile Generator.");
+    this.getManagerInfo();
+  }
+}
 
-    const Profile1 = new TeamProfile();
+const Profile1 = new TeamProfile();
 
-    profile.init();
-
-
+profile.init();
