@@ -2,7 +2,7 @@ const Manager = require("../lib/Manager");
 // const {expect} = require("@jest/globals");
 
 test("get mangager content", () => {
-  const manager = new Manager("David", 1, "David@email.com", "201");
+  const manager = new Manager("David", 1, "David@email.com", 201);
 
   expect(manager.officeNumber).toEqual(expect.any(Number));
 });
@@ -13,7 +13,7 @@ test("get mangager content", () => {
 // });
 
 test("get managers position", () => {
-  const manager = new Manager("David", 1, "David@gmail.com", "201");
+  const manager = new Manager("David", 1, "David@gmail.com");
 
   expect(manager.getPostion()).toEqual("Manager");
 });
