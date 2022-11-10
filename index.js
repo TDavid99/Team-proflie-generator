@@ -11,9 +11,9 @@ const {
   managerQA,
   addEngineerQA,
   addInternQA,
-  chooseEnigineerOrIntern,
+  chooseEngineerOrIntern,
   addAnotherEmployeeQAA,
-} = require("./lib/QA");
+} = require("./lib/q");
 const generateHtml = require("./src/generateHtml");
 const { profile } = require("console");
 const teamManager = [];
@@ -41,7 +41,7 @@ class TeamProfile {
   }
   //inter or engineer addd by user
   addEngineerOrIntern() {
-    inquirer.prompt(chooseEnigineerOrIntern).then((answers) => {
+    inquirer.prompt(chooseEngineerOrIntern).then((answers) => {
       switch (answers.addEmployee) {
         case "Engineer":
           this.getEngineerInfo();
