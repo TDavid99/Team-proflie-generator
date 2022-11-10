@@ -1,2 +1,2 @@
 // generates html with tesm profile
-const generateHtml = (t)
+const generateHtml = (teamMana)
