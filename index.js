@@ -13,7 +13,7 @@ const {
   addInternQA,
   chooseEngineerOrIntern,
   addAnotherEmployeeQAA,
-} = require("./lib/q");
+} = require("./lib/QA");
 const generateHtml = require("./src/generateHtml");
 const { profile } = require("console");
 const teamManager = [];
@@ -44,7 +44,7 @@ class TeamProfile {
     inquirer.prompt(chooseEngineerOrIntern).then((answers) => {
       switch (answers.addEmployee) {
         case "Engineer":
-          this.getEngineerInfo();
+          this.getEngineerData();
           break;
         case "Intern":
           this.getInterInfo();
@@ -55,7 +55,7 @@ class TeamProfile {
     });
   }
   //engineer info from user
-  getEngineerInfo() {
+  getEngineerData() {
     inquirer.prompt(addEngineerQA).then((answers) => {
       const engineer = new Engineer(
         answers.engineerName,
