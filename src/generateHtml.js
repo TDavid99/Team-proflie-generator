@@ -1,6 +1,6 @@
 const Manager = require("../lib/Manager");
 
-// generates html with tesm profile
+// generates html with team profile
 const generateHtml = (teamManager, allEngineers, allInterns) => {
     return `<!DOCTYPE html>
     <html lang="en">
@@ -29,9 +29,41 @@ const generateHtml = (teamManager, allEngineers, allInterns) => {
             <p class="card-text"> Employee ID: ${manager.id}</p>
             <p class="card-text"> Email address: <a herf ="mailto:${manager.email}">${manager.email}">${manager.email}</a></p>
             <p class="card-text"> Office number: ${manager.officeNumber}</p>
-            </
+        </div>
+     </div>
+     </div>
+     </div>`
 
-        )}
-    </html>`;
+    )}
+    <div class="row justify-content-around">
+    ${allEngineers
+    .map(
+        (engineer) =>
+        //add `
+        <div class="col-4 m-2">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Engineer</h5>
+                    <p class="card-text">Name: ${engineer.name}</p>
+                    <p class="card-text">Employee ID</p>
+                    <p class="card-text">Email address: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
+                    <p class="card-text">GitHub username: <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a></p>
+                </div>
+            </div>
+        </div>
+    )
+    .join("")}
+
+    ${allInterns
+    .map(
+        (intern) =>
+        `<div class="col-4 m-2">
+        <div class="card">
+        <div`
+    )}
+
+    )}
+
+    </html>;`
 };
 
