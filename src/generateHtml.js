@@ -59,11 +59,24 @@ const generateHtml = (teamManager, allEngineers, allInterns) => {
         (intern) =>
         `<div class="col-4 m-2">
         <div class="card">
-        <div`
-    )}
+        <div class="card-body">
+        <h5 class="card-title">Intern</h5>
+        <p class="card-text">Name: ^${intern.name}</p>
+        <p class="card-text">Employee ID: ${intern.id}</p>
+        <p class="card-text">Email address: <a herf="mailto:${intern.email}">${intern.email}</a></p>
+        <p class="card-text">School: ${intern.school}</p>
+        </div>
+        </div>
+        </div>`
+        )
+        .join("")}
+          </div>
+        </div>
+        </div>
+        </main>
+        </body>
+        </html>`;
 
-    )}
-
-    </html>;`
-};
+    };
+module.exports = generateHtml;
 
