@@ -27,11 +27,11 @@ function getManagerData() {
       answers.managerEmail,
       answers.managerOfficeNumber
     ).then;
-    // teamManager.push(manager);
+    teamManager.push(manager);
     addEngineerOrIntern();
   });
 }
-//inter or engineer addd by user
+//intern or engineer addd by user
 function addEngineerOrIntern() {
   inquirer.prompt(chooseEngineerOrIntern).then((answers) => {
     switch (answers.addEmployee) {
@@ -50,12 +50,13 @@ function addEngineerOrIntern() {
 function getEngineerData() {
   inquirer.prompt(addEngineerQA).then((answers) => {
     const engineer = new Engineer(
-      answers.EngineerName,
+      answers.engineerName,
       answers.engineerId,
-      answers.EngineerEmail,
-      answers.EngineerGithub
+      answers.engineerEmail,
+      answers.engineerGithub
     );
     allEngineers.push(engineer);
+  
     addAnotherEmployeeChoice();
   });
 }
@@ -89,7 +90,7 @@ function addAnotherEmployeeChoice() {
 //creates html in dist folder
 function createHtml(teamManager, allEngineers, allInterns) {
   const file = fs.promises.writeFile(
-    "./dist/index,html",
+    "./dist/index.html",
     generateHtml(teamManager, allEngineers, allInterns),
     "utf-8"
   );
