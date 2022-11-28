@@ -25,10 +25,10 @@ const generateHtml = (teamManager, allEngineers, allInterns) => {
             <div class="card">
             <div class="card-body">
             <h5 class="card-title">Manager</h5>
-            <p class="card-text"> Name: ${manager.name}</p>
-            <p class="card-text"> Employee ID: ${manager.id}</p>
-            <p class="card-text"> Email address: <a herf ="mailto:${manager.email}">${manager.email}">${manager.email}</a></p>
-            <p class="card-text"> Office number: ${manager.officeNumber}</p>
+            <p class="card-text">Name: ${manager.name}</p>
+            <p class="card-text">Employee ID: ${manager.id}</p>
+            <p class="card-text">Email address: <a herf ="mailto:${manager.email}">${manager.email}">${manager.email}</a></p>
+            <p class="card-text">Office number: ${manager.officeNumber}</p>
         </div>
      </div>
      </div>
@@ -61,7 +61,7 @@ const generateHtml = (teamManager, allEngineers, allInterns) => {
         <div class="card">
         <div class="card-body">
         <h5 class="card-title">Intern</h5>
-        <p class="card-text">Name: ^${intern.name}</p>
+        <p class="card-text">Name: ${intern.name}</p>
         <p class="card-text">Employee ID: ${intern.id}</p>
         <p class="card-text">Email address: <a herf="mailto:${intern.email}">${intern.email}</a></p>
         <p class="card-text">School: ${intern.school}</p>
