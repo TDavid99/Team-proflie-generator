@@ -1,11 +1,10 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
+
+
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-
-const fs = require("fs");
-
-// const teamArray = [];
 
 const {
   managerQA,
@@ -14,10 +13,10 @@ const {
   chooseEngineerOrIntern,
   addAnotherEmployeeQAA,
 } = require("./lib/QA");
+// const { profile } = require("console");
 const generateHtml = require("./src/generateHtml");
-const { profile } = require("console");
 const teamManager = [];
-const allEnigineers = [];
+const allEngineers = [];
 const allInterns = [];
 
 class TeamProfile {
@@ -27,7 +26,7 @@ class TeamProfile {
     this.allInterns = [];
   }
   //manager info from user
-  getManagerInfo() {
+  getManagerData() {
     inquirer.prompt(managerQA).then((answers) => {
       const manager = new Manager(
         answers.managerName,
@@ -47,7 +46,7 @@ class TeamProfile {
           this.getEngineerData();
           break;
         case "Intern":
-          this.getInterInfo();
+          this.getInternData();
           break;
         default:
           return;
@@ -63,12 +62,12 @@ class TeamProfile {
         answers.engineerEmail,
         answers.engineerGithub
       );
-      allEnigineers.push(engineer);
+      allEngineers.push(engineer);
       this.addAnotherEmployeeQAA();
     });
   }
   // Inter info from user
-  getInterInfo() {
+  getInternData() {
     inquirer.prompt(addInternQA).then((answers) => {
       const intern = new Intern(
         answers.internName,
@@ -77,38 +76,40 @@ class TeamProfile {
         answers.internSchool
       );
       allInterns.push(intern);
-      this.addAnotherEmployeeQAA();
+      this.addAnotherEmployeeChoice();
     });
   }
 
   //if user wants to add another employee; it no ends prompt and generates html
-  addAnotherEmployeeQAA() {
+  addAnotherEmployeeChoice() {
     inquirer.prompt(addAnotherEmployeeQAA).then((answers) => {
       if (answers.confirmNewEmployee) {
         this.addEngineerOrIntern();
       } else {
-        this.createHtml(teamManager, allEnigineers, allInterns);
+        this.createHtml(teamManager, allEngineers, allInterns);
 
-        console.log("\nYour team profile is complete in dist folder.\n");
+        console.log(
+          "\nYour team profile is complete in dist folder.\n"
+        );
       }
       return;
     });
   }
   //creates html in dist folder
-  createHtml(teamManager, allEnigineers, allInterns) {
+  createHtml(teamManager, allEngineers, allInterns) {
     const file = fs.promises.writeFile(
       "./dist/index,html",
-      generateHtml(teamManager, allEnigineers, allInterns),
+      generateHtml(teamManager, allEngineers, allInterns),
       "utf-8"
     );
   }
   // runs prompt
-  inti() {
+  init() {
     console.log("Team Profile Generator.");
-    this.getManagerInfo();
+    this.getManagerData();
   }
 }
 
-const Profile1 = new TeamProfile();
+const profile1 = new TeamProfile();
 
-profile.init();
+profile1.init();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 nit();

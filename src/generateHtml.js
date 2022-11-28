@@ -1,4 +1,4 @@
-const Manager = require("../lib/Manager");
+// const Manager = require("../lib/Manager");
 
 // generates html with team profile
 const generateHtml = (teamManager, allEngineers, allInterns) => {
@@ -39,8 +39,8 @@ const generateHtml = (teamManager, allEngineers, allInterns) => {
     ${allEngineers
     .map(
         (engineer) =>
-        //add `
-        <div class="col-4 m-2">
+        
+        `<div class="col-4 m-2">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Engineer</h5>
@@ -50,7 +50,7 @@ const generateHtml = (teamManager, allEngineers, allInterns) => {
                     <p class="card-text">GitHub username: <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a></p>
                 </div>
             </div>
-        </div>
+        </div>`
     )
     .join("")}
 
@@ -75,7 +75,7 @@ const generateHtml = (teamManager, allEngineers, allInterns) => {
         </div>
         </main>
         </body>
-        </html>`;
+        </html>`
 
     };
 module.exports = generateHtml;
