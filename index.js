@@ -21,12 +21,15 @@ const allInterns = [];
 //manager info from user
 function getManagerData() {
   inquirer.prompt(managerQA).then((answers) => {
+    // console.log(answers)
     const manager = new Manager(
       answers.managerName,
       answers.managerId,
       answers.managerEmail,
       answers.managerOfficeNumber
-    ).then;
+    )
+    // .then;
+    // console.log(manager)
     teamManager.push(manager);
     addEngineerOrIntern();
   });

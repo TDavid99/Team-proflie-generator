@@ -9,6 +9,8 @@ This node.js application uses Inquirer and jest to get information that the user
 
 ## display 
 ![alt tag](./Assets/img/Screenshot%20(326).png)
+## Walk through video:https://drive.google.com/file/d/1xkti61clAEcvFH9_YghxJWcg_i9Dx0YT/view
+
 
 
 # Table of Contents

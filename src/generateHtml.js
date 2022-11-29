@@ -2,6 +2,7 @@
 
 // generates html with team profile
 const generateHtml = (teamManager, allEngineers, allInterns) => {
+    // console.log(teamManager)
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -25,9 +26,9 @@ const generateHtml = (teamManager, allEngineers, allInterns) => {
             <div class="card">
             <div class="card-body">
             <h5 class="card-title">Manager</h5>
-            <p class="card-text">Name: ${manager.name}</p>
-            <p class="card-text">Employee ID: ${manager.id}</p>
-            <p class="card-text">Email address: <a herf ="mailto:${manager.email}">${manager.email}">${manager.email}</a></p>
+            <p class="card-text">Name: ${manager.getName()}</p>
+            <p class="card-text">Employee ID: ${manager.getId()}</p>
+            <p class="card-text">Email address: <a herf ="mailto:${manager.getEmail()}">${manager.email}">${manager.email}</a></p>
             <p class="card-text">Office number: ${manager.officeNumber}</p>
         </div>
      </div>
